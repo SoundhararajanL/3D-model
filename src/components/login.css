@@ -1,0 +1,81 @@
+/* login.css */
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.split-container {
+  display: flex;
+  width: 100%;
+}
+
+.left-half {
+  width: 50%;
+  position: relative; /* Necessary for absolutely positioned canvas */
+}
+
+.right-half {
+  width: 50%;
+}
+
+.login-form {
+  padding: 20px; /* Increased padding */
+ 
+  border-radius: 5px;
+ 
+}
+
+.form-group {
+  margin-bottom: 15px; /* Increased margin bottom */
+  color: #000000;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+body {
+  /* Define the gradient */
+  background: linear-gradient(135deg, #222020, #c7c7d3);
+
+  /* Fallback for older browsers */
+  background-color: black;
+
+  /* Ensure the gradient covers the entire viewport */
+  background-size: cover;
+
+  /* Center the background image */
+  background-position: center;
+    overflow: hidden;
+}
+
+h2 {
+  color: #000000;
+}
+
+/* Custom styling for input fields */
+.form-control {
+  background: transparent; /* Transparent background */
+  border: 1px solid #ccc;
+  color: #ccc;
+  width: 50%; /* Adjust input width */
+  padding: 10px; /* Increased padding */
+  margin: 10px;
+}
+
+/* Style the button */
+.btn-primary {
+  background-color: #ccc;
+  border-color: #ccc;
+  color: #000;
+}
+
+/* Change button color on hover */
+.btn-primary:hover {
+  background-color: #3c70ff;
+  border-color: #333232;
+}
