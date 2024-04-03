@@ -4,14 +4,17 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 require('dotenv/config');
 const cors = require('cors');
+ // Router
+const UserRoutes = require('./UserRoutes');
+app.use('/users', UserRoutes);
 
 // Middleware
 app.use(express.json());
 app.use(morgan('dev'));
-app.use(cors());
+app.use(cors()); 
 
 // Start the server
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });

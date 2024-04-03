@@ -1,31 +1,38 @@
 import React, { useState } from 'react';
-import Login3d from './login';
-import './login.css'; 
+import axios from 'axios';
+import Login3d from "./login";
 
 function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');   
+  const [users, setUsers] = useState({
+    username: '',
+    password: '',
+  });
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUsers(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(username);
-    console.log(password);
+    try {
+      await axios.post('http://localhost:3000/users/login', users);
+      alert('Data submitted successfully!');
+      setUsers({ username: '', password: '' });
+    } catch (error) {
+      console.error('Error submitting data:', error);
+    }
   };
-
+  
   return (
     <div className="login-container">
       <h2 className="mt-5">Login</h2>
       <div className="split-container">
         <div className="left-half">
-          <Login3d />
+          <Login3d/>
         </div>
         <div className="right-half">
           <form onSubmit={handleSubmit} className="login-form mt-3">
@@ -35,8 +42,9 @@ function Login() {
                 type="text"
                 className="form-control"
                 id="username"
-                value={username}
-                onChange={handleUsernameChange}
+                name="username"
+                value={users.username}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -46,8 +54,9 @@ function Login() {
                 type="password"
                 className="form-control"
                 id="password"
-                value={password}
-                onChange={handlePasswordChange}
+                name="password"
+                value={users.password}
+                onChange={handleChange}
                 required
               />
             </div>
