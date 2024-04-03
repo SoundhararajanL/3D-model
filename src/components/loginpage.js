@@ -96,7 +96,9 @@ function Login() {
               <span className="text">Login</span>
               <span aria-hidden="" className="marquee">Login</span>
             </button>
+            <p>Signup ? <a href="#" id="style-2" data-replace="click this"><span>click this</span></a></p>
           </form>
+          
         </div>
       </div>
       <ToastContainer />
