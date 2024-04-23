@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Login3d from "./login";
-import { ToastContainer, toast, Zoom } from 'react-toastify';
+import { ToastContainer, toast, Zoom ,Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
@@ -35,7 +35,17 @@ function Login() {
       });
       setUsers({ username: '', password: '' });
     } catch (error) {
-      console.error('Error submitting data:', error);
+      toast.error(' Error to Login!', {
+        position: "top-right",
+        autoClose: 800,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Flip,
+        });
     }
   };
 
